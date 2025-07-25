@@ -1,0 +1,455 @@
+/**
+ * Стили для карты СДЭК с пунктами выдачи
+ */
+
+.cdek-map-container {
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cdek-map-header {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cdek-map-header h3 {
+    margin: 0 0 15px 0;
+    font-size: 20px;
+    color: #333;
+    font-weight: 600;
+}
+
+.cdek-map-search {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.cdek-map-search input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 2px solid #e1e5e9;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cdek-map-search input:focus {
+    outline: none;
+    border-color: #007cba;
+    box-shadow: 0 0 0 3px rgba(0, 124, 186, 0.1);
+}
+
+.cdek-map-search button {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #007cba 0%, #005a87 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    min-width: 80px;
+}
+
+.cdek-map-search button:hover {
+    background: linear-gradient(135deg, #005a87 0%, #004066 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 124, 186, 0.3);
+}
+
+.cdek-map-search button:active {
+    transform: translateY(0);
+}
+
+.cdek-map-wrapper {
+    display: flex;
+    min-height: 450px;
+}
+
+#cdek-yandex-map {
+    flex: 2;
+    min-height: 450px;
+}
+
+.cdek-offices-sidebar {
+    flex: 1;
+    border-left: 1px solid #ddd;
+    background: #fafbfc;
+    overflow-y: auto;
+    max-height: 450px;
+}
+
+.cdek-offices-list {
+    padding: 0;
+}
+
+.cdek-office-item {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #fff;
+    margin: 0 15px 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.cdek-office-item:first-child {
+    margin-top: 15px;
+}
+
+.cdek-office-item:last-child {
+    margin-bottom: 15px;
+    border-bottom: none;
+}
+
+.cdek-office-item:hover {
+    background: #f8f9fa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cdek-office-item.selected {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-left: 4px solid #007cba;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 124, 186, 0.2);
+}
+
+.cdek-office-name {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.cdek-office-address {
+    color: #666;
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.cdek-office-time {
+    color: #888;
+    font-size: 12px;
+    margin-bottom: 8px;
+    font-style: italic;
+}
+
+.cdek-office-phone {
+    color: #007cba;
+    font-size: 13px;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.cdek-select-office-btn {
+    background: linear-gradient(135deg, #007cba 0%, #005a87 100%);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.cdek-select-office-btn:hover {
+    background: linear-gradient(135deg, #005a87 0%, #004066 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 124, 186, 0.3);
+}
+
+.cdek-office-item.selected .cdek-select-office-btn {
+    background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+}
+
+.cdek-office-item.selected .cdek-select-office-btn:hover {
+    background: linear-gradient(135deg, #388e3c 0%, #2e7d32 100%);
+}
+
+.cdek-selected-office {
+    background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    border-left: 4px solid #4caf50;
+}
+
+.cdek-selected-office h4 {
+    margin: 0 0 12px 0;
+    color: #2e7d32;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.cdek-selected-info {
+    color: #333;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.cdek-loading {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+    font-size: 16px;
+}
+
+.cdek-loading::after {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    border: 2px solid #ddd;
+    border-top: 2px solid #007cba;
+    border-radius: 50%;
+    animation: cdek-spin 1s linear infinite;
+}
+
+@keyframes cdek-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.cdek-error {
+    text-align: center;
+    padding: 30px 20px;
+    color: #d32f2f;
+    background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+    border-radius: 8px;
+    margin: 15px;
+    border-left: 4px solid #d32f2f;
+}
+
+.cdek-error button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.cdek-error button:hover {
+    background: #b71c1c;
+}
+
+.cdek-no-offices {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+    font-size: 16px;
+    background: #f5f5f5;
+    margin: 15px;
+    border-radius: 8px;
+    border: 2px dashed #ddd;
+}
+
+.cdek-balloon {
+    max-width: 280px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.cdek-balloon p {
+    margin: 8px 0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.cdek-balloon strong {
+    color: #333;
+    font-weight: 600;
+}
+
+.cdek-balloon button {
+    background: linear-gradient(135deg, #007cba 0%, #005a87 100%);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 12px;
+    font-weight: 500;
+    font-size: 13px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.cdek-balloon button:hover {
+    background: linear-gradient(135deg, #005a87 0%, #004066 100%);
+    transform: translateY(-1px);
+}
+
+.cdek-notification {
+    animation: cdek-slide-in 0.3s ease-out;
+}
+
+@keyframes cdek-slide-in {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .cdek-map-wrapper {
+        flex-direction: column;
+    }
+    
+    .cdek-offices-sidebar {
+        border-left: none;
+        border-top: 1px solid #ddd;
+        max-height: 350px;
+    }
+    
+    #cdek-yandex-map {
+        height: 300px;
+        min-height: 300px;
+    }
+    
+    .cdek-map-search {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .cdek-map-search button {
+        width: 100%;
+    }
+    
+    .cdek-office-item {
+        margin: 0 10px 8px 10px;
+        padding: 15px;
+    }
+    
+    .cdek-map-header {
+        padding: 15px;
+    }
+    
+    .cdek-map-header h3 {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cdek-map-container {
+        margin: 15px 0;
+        border-radius: 6px;
+    }
+    
+    .cdek-map-header {
+        padding: 12px;
+    }
+    
+    .cdek-map-header h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    
+    .cdek-office-item {
+        margin: 0 5px 6px 5px;
+        padding: 12px;
+    }
+    
+    .cdek-office-name {
+        font-size: 15px;
+    }
+    
+    .cdek-selected-office {
+        padding: 15px;
+    }
+    
+    .cdek-selected-office h4 {
+        font-size: 16px;
+    }
+}
+
+/* Стили для интеграции с WooCommerce */
+.wc-block-checkout__shipping-option .cdek-map-container {
+    margin-top: 15px;
+}
+
+.wc-block-components-checkout-step .cdek-map-container {
+    border-color: #e1e5e9;
+}
+
+/* Скрытие карты по умолчанию */
+.wp-block-cdek-checkout-map-block {
+    display: none;
+}
+
+/* Показываем карту только при выборе самовывоза */
+.wc-block-checkout__shipping-method-option--selected + .wp-block-cdek-checkout-map-block,
+.wp-block-cdek-checkout-map-block.show {
+    display: block;
+}
+
+/* Стили для заметок о доставке */
+.delivery-note {
+    font-style: italic;
+    margin-top: 5px;
+}
+
+/* Улучшенные стили для кнопок */
+.cdek-select-office-btn,
+.cdek-map-search button,
+.cdek-error button {
+    position: relative;
+    overflow: hidden;
+}
+
+.cdek-select-office-btn::before,
+.cdek-map-search button::before,
+.cdek-error button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.cdek-select-office-btn:hover::before,
+.cdek-map-search button:hover::before,
+.cdek-error button:hover::before {
+    left: 100%;
+}
+
+/* Стили для скроллбара в списке офисов */
+.cdek-offices-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.cdek-offices-sidebar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.cdek-offices-sidebar::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.cdek-offices-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
