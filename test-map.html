@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест карты СДЭК</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="cdek-shipping/assets/css/cdek-shipping.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .test-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .test-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .test-header h1 {
+            color: #007cba;
+            margin: 0 0 10px 0;
+            font-size: 28px;
+        }
+        
+        .test-header p {
+            color: #666;
+            margin: 0;
+            font-size: 16px;
+        }
+        
+        .test-controls {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .test-controls h3 {
+            margin: 0 0 15px 0;
+            color: #333;
+        }
+        
+        .control-group {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .control-group label {
+            min-width: 100px;
+            font-weight: 500;
+        }
+        
+        .control-group button {
+            padding: 10px 20px;
+            background: #007cba;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .control-group button:hover {
+            background: #005a87;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1>🗺️ Тест карты СДЭК</h1>
+            <p>Проверка работы интерактивной карты с пунктами выдачи</p>
+        </div>
+        
+        <div class="test-controls">
+            <h3>Управление тестом</h3>
+            <div class="control-group">
+                <label>Показать карту:</label>
+                <button onclick="showMap()">Показать</button>
+                <button onclick="hideMap()">Скрыть</button>
+            </div>
+            <div class="control-group">
+                <label>Загрузить город:</label>
+                <button onclick="loadCity('Москва')">Москва</button>
+                <button onclick="loadCity('Санкт-Петербург')">СПб</button>
+                <button onclick="loadCity('Екатеринбург')">Екатеринбург</button>
+            </div>
+        </div>
+        
+        <!-- Контейнер для карты СДЭК -->
+        <div id="cdek-pickup-points" class="cdek-pickup-points show">
+            <div class="cdek-header">
+                <h4>🗺️ Выберите пункт выдачи CDEK</h4>
+                <div class="cdek-city-search">
+                    <input type="text" id="cdek-city-search" placeholder="Введите город..." value="Москва" />
+                    <button type="button" id="cdek-city-search-btn">🔍 Найти</button>
+                </div>
+            </div>
+            <div class="cdek-view-toggle">
+                <button type="button" data-view="list" class="active">📋 Список</button>
+                <button type="button" data-view="map">🗺️ Карта</button>
+            </div>
+            <div id="cdek-pickup-list" class="cdek-pickup-list">
+                <div class="cdek-loading">🔄 Загрузка пунктов выдачи...</div>
+            </div>
+            <div id="cdek-pickup-map" class="cdek-pickup-map" style="display: none;">
+                <div id="cdek-yandex-map" class="cdek-map-container"></div>
+            </div>
+            <div id="cdek-selected-point" class="cdek-selected-point" style="display: none;">
+                <h5>✅ Выбранный пункт выдачи:</h5>
+                <div class="cdek-selected-info"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подключаем JavaScript карты -->
+    <script>
+        // Эмуляция WordPress AJAX данных
+        window.cdek_ajax = {
+            ajax_url: '#',
+            nonce: 'test-nonce',
+            yandex_api_key: '' // Можете добавить свой ключ для тестирования
+        };
+    </script>
+    <script src="cdek-shipping/assets/js/cdek-shipping.js"></script>
+    
+    <script>
+        // Функции управления тестом
+        function showMap() {
+            $('#cdek-pickup-points').addClass('show').show();
+            console.log('Map container shown');
+        }
+        
+        function hideMap() {
+            $('#cdek-pickup-points').removeClass('show').hide();
+            console.log('Map container hidden');
+        }
+        
+        function loadCity(city) {
+            $('#cdek-city-search').val(city);
+            if (window.CDEKMap) {
+                window.CDEKMap.loadPickupPoints(city);
+                console.log('Loading city:', city);
+            }
+        }
+        
+        // Принудительно показываем карту при загрузке
+        $(document).ready(function() {
+            setTimeout(function() {
+                showMap();
+                loadCity('Москва');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

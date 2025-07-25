@@ -8,121 +8,156 @@
 
 /* CDEK pickup points selector */
 .cdek-pickup-points {
-    margin: 15px 0;
+    margin: 20px 0;
     padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background: #f9f9f9;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #007cba;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    box-shadow: 0 4px 20px rgba(0, 124, 186, 0.15);
+    position: relative;
+}
+
+.cdek-pickup-points::before {
+    content: "🚚";
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    background: #007cba;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
 }
 
 .cdek-pickup-points h4 {
-    margin: 0 0 15px 0;
-    color: #333;
-    font-size: 18px;
-    font-weight: 600;
+    margin: 0 0 20px 0;
+    color: #007cba;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* Header with search */
 .cdek-header {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .cdek-city-search {
     display: flex;
-    gap: 10px;
-    margin-top: 10px;
+    gap: 12px;
+    margin-top: 15px;
+    background: white;
+    padding: 8px;
+    border-radius: 8px;
+    border: 2px solid #e1e5e9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .cdek-city-search input {
     flex: 1;
-    padding: 10px 12px;
+    padding: 12px 16px;
     border: 2px solid #e1e5e9;
     border-radius: 6px;
-    font-size: 14px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 .cdek-city-search input:focus {
     outline: none;
-    border-color: #0073aa;
-    box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.1);
+    border-color: #007cba;
+    box-shadow: 0 0 0 3px rgba(0, 124, 186, 0.1);
+    transform: translateY(-1px);
 }
 
 .cdek-city-search button {
-    padding: 10px 20px;
-    background: linear-gradient(135deg, #0073aa 0%, #005177 100%);
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #007cba 0%, #005a87 100%);
     color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    font-weight: 500;
-    font-size: 14px;
+    font-weight: 600;
+    font-size: 16px;
     transition: all 0.3s ease;
+    min-width: 120px;
+    box-shadow: 0 2px 8px rgba(0, 124, 186, 0.3);
 }
 
 .cdek-city-search button:hover {
-    background: linear-gradient(135deg, #005177 0%, #003d5c 100%);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 115, 170, 0.3);
+    background: linear-gradient(135deg, #005a87 0%, #003d5c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 124, 186, 0.4);
 }
 
 /* View toggle buttons */
 .cdek-view-toggle {
     display: flex;
-    gap: 5px;
-    margin-bottom: 15px;
-    background: #fff;
-    border-radius: 6px;
-    padding: 4px;
-    border: 1px solid #ddd;
+    gap: 0;
+    margin-bottom: 20px;
+    background: white;
+    border-radius: 10px;
+    padding: 6px;
+    border: 2px solid #e1e5e9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .cdek-view-toggle button {
     flex: 1;
-    padding: 8px 16px;
+    padding: 12px 20px;
     background: transparent;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 600;
     color: #666;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .cdek-view-toggle button.active {
-    background: #0073aa;
+    background: linear-gradient(135deg, #007cba 0%, #005a87 100%);
     color: white;
-    box-shadow: 0 2px 4px rgba(0, 115, 170, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 124, 186, 0.3);
+    transform: translateY(-1px);
 }
 
 .cdek-view-toggle button:hover:not(.active) {
-    background: #f0f0f0;
-    color: #333;
+    background: #f0f8ff;
+    color: #007cba;
+    transform: translateY(-1px);
 }
 
 /* Pickup list */
 .cdek-pickup-list {
-    max-height: 350px;
+    max-height: 400px;
     overflow-y: auto;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    border: 2px solid #e1e5e9;
+    border-radius: 10px;
     background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .cdek-pickup-item {
-    padding: 15px;
-    border-bottom: 1px solid #eee;
+    padding: 20px;
+    border-bottom: 1px solid #f0f0f0;
     cursor: pointer;
     transition: all 0.3s ease;
     background: white;
+    position: relative;
 }
 
 .cdek-pickup-item:hover {
-    background-color: #f8f9fa;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .cdek-pickup-item:last-child {
@@ -131,153 +166,220 @@
 
 .cdek-pickup-item.selected {
     background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-    border-left: 4px solid #0073aa;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 115, 170, 0.2);
+    border-left: 6px solid #007cba;
+    transform: translateX(10px);
+    box-shadow: 0 6px 20px rgba(0, 124, 186, 0.25);
+}
+
+.cdek-pickup-item.selected::after {
+    content: "✅";
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
 }
 
 .cdek-pickup-name {
-    font-weight: 600;
+    font-weight: 700;
     color: #333;
-    margin-bottom: 5px;
-    font-size: 16px;
+    margin-bottom: 8px;
+    font-size: 18px;
 }
 
 .cdek-pickup-address {
     color: #666;
-    font-size: 14px;
-    margin-bottom: 5px;
-    line-height: 1.4;
+    font-size: 15px;
+    margin-bottom: 8px;
+    line-height: 1.5;
+    font-weight: 500;
 }
 
 .cdek-pickup-schedule {
     color: #888;
-    font-size: 12px;
+    font-size: 14px;
+    margin-bottom: 8px;
     font-style: italic;
+}
+
+.cdek-pickup-phone {
+    color: #007cba;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 /* Map container */
 .cdek-pickup-map {
-    border: 1px solid #ddd;
-    border-radius: 6px;
+    border: 2px solid #e1e5e9;
+    border-radius: 10px;
     overflow: hidden;
     background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .cdek-map-container {
-    height: 400px;
+    height: 450px;
     width: 100%;
-    min-height: 400px;
+    min-height: 450px;
+    position: relative;
+}
+
+.cdek-map-container::after {
+    content: "🗺️ Интерактивная карта СДЭК";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0, 124, 186, 0.9);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 1000;
+    pointer-events: none;
 }
 
 /* Selected point info */
 .cdek-selected-point {
     background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
-    padding: 15px;
-    border-radius: 6px;
-    margin-top: 15px;
-    border-left: 4px solid #4caf50;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    border: 2px solid #4caf50;
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+    animation: cdek-bounce-in 0.5s ease-out;
+}
+
+@keyframes cdek-bounce-in {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .cdek-selected-point h5 {
-    margin: 0 0 10px 0;
+    margin: 0 0 12px 0;
     color: #2e7d32;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
 }
 
 .cdek-selected-info {
     color: #333;
-    line-height: 1.5;
-    font-size: 14px;
+    line-height: 1.8;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
 }
 
 /* Loading and error states */
 .cdek-loading {
     text-align: center;
-    padding: 30px 20px;
-    color: #666;
-    font-size: 16px;
+    padding: 40px 20px;
+    color: #007cba;
+    font-size: 18px;
+    font-weight: 600;
+    animation: cdek-pulse 2s infinite;
 }
 
-.cdek-loading::after {
-    content: "";
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    margin-left: 10px;
-    border: 2px solid #ddd;
-    border-top: 2px solid #0073aa;
-    border-radius: 50%;
-    animation: cdek-spin 1s linear infinite;
-}
-
-@keyframes cdek-spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+@keyframes cdek-pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
 }
 
 .cdek-error {
-    color: #d63638;
-    padding: 15px;
+    color: #d32f2f;
+    padding: 20px;
     background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
-    border-left: 4px solid #d63638;
-    border-radius: 0 6px 6px 0;
-    margin: 10px 0;
+    border: 2px solid #d32f2f;
+    border-radius: 10px;
+    margin: 15px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
 }
 
 .cdek-success {
-    color: #008a00;
-    padding: 15px;
-    background: linear-gradient(135deg, #eafaea 0%, #c8e6c9 100%);
-    border-left: 4px solid #008a00;
-    border-radius: 0 6px 6px 0;
-    margin: 10px 0;
+    color: #2e7d32;
+    padding: 20px;
+    background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+    border: 2px solid #4caf50;
+    border-radius: 10px;
+    margin: 15px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
 }
 
-/* Hide pickup points initially */
+/* Show/hide pickup points */
 .cdek-pickup-points {
-    display: none;
+    display: none !important;
 }
 
 .cdek-pickup-points.show {
-    display: block;
+    display: block !important;
+    animation: cdek-slide-down 0.5s ease-out;
+}
+
+@keyframes cdek-slide-down {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 /* Balloon styles for map */
 .cdek-balloon {
-    max-width: 280px;
+    max-width: 300px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    padding: 10px;
 }
 
 .cdek-balloon p {
-    margin: 8px 0;
+    margin: 10px 0;
     font-size: 14px;
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 .cdek-balloon strong {
     color: #333;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .cdek-select-btn {
-    background: linear-gradient(135deg, #0073aa 0%, #005177 100%);
+    background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
     color: white;
     border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
+    padding: 12px 20px;
+    border-radius: 6px;
     cursor: pointer;
-    margin-top: 10px;
-    font-weight: 500;
-    font-size: 13px;
+    margin-top: 15px;
+    font-weight: 600;
+    font-size: 14px;
     width: 100%;
     transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
 }
 
 .cdek-select-btn:hover {
-    background: linear-gradient(135deg, #005177 0%, #003d5c 100%);
-    transform: translateY(-1px);
+    background: linear-gradient(135deg, #388e3c 0%, #2e7d32 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(76, 175, 80, 0.4);
 }
 
 /* Notification */
@@ -285,22 +387,24 @@
     position: fixed;
     top: 20px;
     right: 20px;
-    background: #4caf50;
+    background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
     color: white;
-    padding: 12px 20px;
-    border-radius: 6px;
+    padding: 16px 24px;
+    border-radius: 10px;
     z-index: 10000;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-    animation: cdek-slide-in 0.3s ease-out;
-    font-weight: 500;
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+    animation: cdek-slide-in 0.5s ease-out;
+    font-weight: 600;
+    font-size: 16px;
+    max-width: 350px;
 }
 
 @keyframes cdek-slide-in {
-    from {
+    0% {
         transform: translateX(100%);
         opacity: 0;
     }
-    to {
+    100% {
         transform: translateX(0);
         opacity: 1;
     }
@@ -309,26 +413,31 @@
 /* Responsive design */
 @media (max-width: 768px) {
     .cdek-pickup-points {
-        margin: 10px 0;
+        margin: 15px 0;
         padding: 15px;
     }
     
+    .cdek-pickup-points h4 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    
     .cdek-pickup-list {
-        max-height: 250px;
+        max-height: 300px;
     }
     
     .cdek-pickup-item {
-        padding: 12px;
+        padding: 15px;
     }
     
     .cdek-map-container {
-        height: 300px;
-        min-height: 300px;
+        height: 350px;
+        min-height: 350px;
     }
     
     .cdek-city-search {
         flex-direction: column;
-        gap: 8px;
+        gap: 10px;
     }
     
     .cdek-city-search button {
@@ -336,7 +445,12 @@
     }
     
     .cdek-view-toggle {
-        margin-bottom: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .cdek-view-toggle button {
+        font-size: 14px;
+        padding: 10px 15px;
     }
     
     .cdek-notification {
@@ -344,34 +458,40 @@
         right: 10px;
         left: 10px;
         text-align: center;
+        max-width: none;
     }
 }
 
 @media (max-width: 480px) {
     .cdek-pickup-points {
         padding: 12px;
-        margin: 8px 0;
+        margin: 10px 0;
     }
     
     .cdek-pickup-item {
-        padding: 10px;
-    }
-    
-    .cdek-pickup-name {
-        font-size: 15px;
-    }
-    
-    .cdek-map-container {
-        height: 250px;
-        min-height: 250px;
-    }
-    
-    .cdek-selected-point {
         padding: 12px;
     }
     
+    .cdek-pickup-name {
+        font-size: 16px;
+    }
+    
+    .cdek-map-container {
+        height: 300px;
+        min-height: 300px;
+    }
+    
+    .cdek-selected-point {
+        padding: 15px;
+    }
+    
     .cdek-selected-point h5 {
-        font-size: 15px;
+        font-size: 16px;
+    }
+    
+    .cdek-city-search input,
+    .cdek-city-search button {
+        font-size: 14px;
     }
 }
 
@@ -395,7 +515,8 @@
 
 /* Radio button styling for pickup points */
 .cdek-pickup-item input[type="radio"] {
-    margin-right: 8px;
+    margin-right: 12px;
+    transform: scale(1.2);
 }
 
 .cdek-pickup-item label {
@@ -406,7 +527,8 @@
 
 /* Button animations */
 .cdek-city-search button,
-.cdek-select-btn {
+.cdek-select-btn,
+.cdek-view-toggle button {
     position: relative;
     overflow: hidden;
 }
@@ -419,8 +541,8 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s;
 }
 
 .cdek-city-search button:hover::before,
@@ -430,18 +552,34 @@
 
 /* Scrollbar styling */
 .cdek-pickup-list::-webkit-scrollbar {
-    width: 6px;
+    width: 8px;
 }
 
 .cdek-pickup-list::-webkit-scrollbar-track {
     background: #f1f1f1;
+    border-radius: 4px;
 }
 
 .cdek-pickup-list::-webkit-scrollbar-thumb {
-    background: #c1c1c1;
-    border-radius: 3px;
+    background: linear-gradient(135deg, #007cba 0%, #005a87 100%);
+    border-radius: 4px;
 }
 
 .cdek-pickup-list::-webkit-scrollbar-thumb:hover {
-    background: #a8a8a8;
+    background: linear-gradient(135deg, #005a87 0%, #003d5c 100%);
+}
+
+/* Debug info (remove in production) */
+.cdek-debug {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    z-index: 9999;
+    max-width: 300px;
+    display: none;
 }
