@@ -1,0 +1,447 @@
+/* Hide unnecessary shipping fields */
+.wc-block-components-address-form .wc-block-components-address-form__city,
+.wc-block-components-address-form .wc-block-components-address-form__state,
+.wc-block-components-address-form .wc-block-components-address-form__postcode,
+.form-row-hidden {
+    display: none !important;
+}
+
+/* CDEK pickup points selector */
+.cdek-pickup-points {
+    margin: 15px 0;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cdek-pickup-points h4 {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Header with search */
+.cdek-header {
+    margin-bottom: 15px;
+}
+
+.cdek-city-search {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.cdek-city-search input {
+    flex: 1;
+    padding: 10px 12px;
+    border: 2px solid #e1e5e9;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cdek-city-search input:focus {
+    outline: none;
+    border-color: #0073aa;
+    box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.1);
+}
+
+.cdek-city-search button {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #0073aa 0%, #005177 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.cdek-city-search button:hover {
+    background: linear-gradient(135deg, #005177 0%, #003d5c 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 115, 170, 0.3);
+}
+
+/* View toggle buttons */
+.cdek-view-toggle {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+    background: #fff;
+    border-radius: 6px;
+    padding: 4px;
+    border: 1px solid #ddd;
+}
+
+.cdek-view-toggle button {
+    flex: 1;
+    padding: 8px 16px;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.cdek-view-toggle button.active {
+    background: #0073aa;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 115, 170, 0.2);
+}
+
+.cdek-view-toggle button:hover:not(.active) {
+    background: #f0f0f0;
+    color: #333;
+}
+
+/* Pickup list */
+.cdek-pickup-list {
+    max-height: 350px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: white;
+}
+
+.cdek-pickup-item {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.cdek-pickup-item:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cdek-pickup-item:last-child {
+    border-bottom: none;
+}
+
+.cdek-pickup-item.selected {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-left: 4px solid #0073aa;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 115, 170, 0.2);
+}
+
+.cdek-pickup-name {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.cdek-pickup-address {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+
+.cdek-pickup-schedule {
+    color: #888;
+    font-size: 12px;
+    font-style: italic;
+}
+
+/* Map container */
+.cdek-pickup-map {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+    background: white;
+}
+
+.cdek-map-container {
+    height: 400px;
+    width: 100%;
+    min-height: 400px;
+}
+
+/* Selected point info */
+.cdek-selected-point {
+    background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+    border-left: 4px solid #4caf50;
+}
+
+.cdek-selected-point h5 {
+    margin: 0 0 10px 0;
+    color: #2e7d32;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.cdek-selected-info {
+    color: #333;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+/* Loading and error states */
+.cdek-loading {
+    text-align: center;
+    padding: 30px 20px;
+    color: #666;
+    font-size: 16px;
+}
+
+.cdek-loading::after {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    border: 2px solid #ddd;
+    border-top: 2px solid #0073aa;
+    border-radius: 50%;
+    animation: cdek-spin 1s linear infinite;
+}
+
+@keyframes cdek-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.cdek-error {
+    color: #d63638;
+    padding: 15px;
+    background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+    border-left: 4px solid #d63638;
+    border-radius: 0 6px 6px 0;
+    margin: 10px 0;
+}
+
+.cdek-success {
+    color: #008a00;
+    padding: 15px;
+    background: linear-gradient(135deg, #eafaea 0%, #c8e6c9 100%);
+    border-left: 4px solid #008a00;
+    border-radius: 0 6px 6px 0;
+    margin: 10px 0;
+}
+
+/* Hide pickup points initially */
+.cdek-pickup-points {
+    display: none;
+}
+
+.cdek-pickup-points.show {
+    display: block;
+}
+
+/* Balloon styles for map */
+.cdek-balloon {
+    max-width: 280px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.cdek-balloon p {
+    margin: 8px 0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.cdek-balloon strong {
+    color: #333;
+    font-weight: 600;
+}
+
+.cdek-select-btn {
+    background: linear-gradient(135deg, #0073aa 0%, #005177 100%);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 13px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.cdek-select-btn:hover {
+    background: linear-gradient(135deg, #005177 0%, #003d5c 100%);
+    transform: translateY(-1px);
+}
+
+/* Notification */
+.cdek-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #4caf50;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    z-index: 10000;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    animation: cdek-slide-in 0.3s ease-out;
+    font-weight: 500;
+}
+
+@keyframes cdek-slide-in {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .cdek-pickup-points {
+        margin: 10px 0;
+        padding: 15px;
+    }
+    
+    .cdek-pickup-list {
+        max-height: 250px;
+    }
+    
+    .cdek-pickup-item {
+        padding: 12px;
+    }
+    
+    .cdek-map-container {
+        height: 300px;
+        min-height: 300px;
+    }
+    
+    .cdek-city-search {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .cdek-city-search button {
+        width: 100%;
+    }
+    
+    .cdek-view-toggle {
+        margin-bottom: 10px;
+    }
+    
+    .cdek-notification {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .cdek-pickup-points {
+        padding: 12px;
+        margin: 8px 0;
+    }
+    
+    .cdek-pickup-item {
+        padding: 10px;
+    }
+    
+    .cdek-pickup-name {
+        font-size: 15px;
+    }
+    
+    .cdek-map-container {
+        height: 250px;
+        min-height: 250px;
+    }
+    
+    .cdek-selected-point {
+        padding: 12px;
+    }
+    
+    .cdek-selected-point h5 {
+        font-size: 15px;
+    }
+}
+
+/* Checkout form adjustments */
+.woocommerce-checkout .woocommerce-shipping-fields h3 {
+    margin-bottom: 15px;
+}
+
+.woocommerce form .form-row.form-row-hidden {
+    display: none !important;
+}
+
+/* Address field enhancement */
+.wc-block-components-address-form__address_1 input {
+    padding: 10px;
+}
+
+.wc-block-components-address-form__address_1 label {
+    font-weight: 500;
+}
+
+/* Radio button styling for pickup points */
+.cdek-pickup-item input[type="radio"] {
+    margin-right: 8px;
+}
+
+.cdek-pickup-item label {
+    cursor: pointer;
+    display: block;
+    width: 100%;
+}
+
+/* Button animations */
+.cdek-city-search button,
+.cdek-select-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.cdek-city-search button::before,
+.cdek-select-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.cdek-city-search button:hover::before,
+.cdek-select-btn:hover::before {
+    left: 100%;
+}
+
+/* Scrollbar styling */
+.cdek-pickup-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.cdek-pickup-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.cdek-pickup-list::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.cdek-pickup-list::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
